@@ -1,7 +1,7 @@
 {
   "name": "dsh-network-engineer",
   "version": "0.1.0",
-  "description": "网络工程师助手 for DeepSeek Harness：迪普/新华三/华为/锐捷交换机路由器命令知识库（32 篇）+ 可切换预设 Agent，支持跨厂商对照、截图识别与联网查手册",
+  "description": "网络工程师助手 for DeepSeek Harness：十厂商（迪普/新华三/华为/锐捷/思科 IOS·NX-OS/Junos/EOS/FortiOS/中兴）交换机路由器防火墙命令知识库（80 篇）+ 可切换预设 Agent，支持跨厂商对照、截图识别与联网查手册",
   "type": "module",
   "main": "index.js",
   "files": [
