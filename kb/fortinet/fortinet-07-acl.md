@@ -68,7 +68,6 @@ FortiGate (1) # set srcaddr "lan"
 FortiGate (1) # set dstaddr "all"
 FortiGate (1) # set service "SSH"
 FortiGate (1) # set action accept
-FortiGate (1) # set schedule "always"
 FortiGate (1) # next
 FortiGate (local-in-policy) # edit 2
 FortiGate (2) # set intf "port1"
@@ -93,8 +92,7 @@ FortiGate # diagnose debug enable
 - `set action` 默认 `deny`，必须显式 `accept`；`set nat enable` 才做 SNAT，做 DNAT/端口映射要用 VIP 并把 VIP 放进策略的 `dstaddr`。
 - **改策略不刷新已有会话**：老会话仍按旧策略转发，必须 `diagnose sys session filter ...` + `diagnose sys session clear` 或等老化，否则会误判"配置没生效"。
 - 策略按 ID 升序匹配、命中即停，插入例外要么用 `move` 调序，要么规划好 ID；`edit 0` 会自动分配一个 ID（通常是当前最大值 +1）。
-- Local-in 与 SD-WAN 版本差异：FortiOS 7.4.6 / 7.6.1 起，若接口属于 SD-WAN 区域，Local-in 策略只能引用区域而不能引用成员接口，升级后老策略可能失效需重建。
-- 管理面的第一道门其实是接口的 `set allowaccess`（允许哪些协议），Local-in 是第二道门；只配其中一个都不完整。
+- Local-in 与 SD-WAN 版本差异：FortiOS 7.4.6 / 7.6.1 起，若接口属于 SD-WAN 区域，Local-in 策略只能引用区域而不能引用成员接口，升级后老策略可能失效需重建。管理面的第一道门其实是接口的 `set allowaccess`，Local-in 是第二道门，只配一个都不完整。
 
 ## 高危操作 ⚠️
 
